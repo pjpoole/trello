@@ -1,16 +1,30 @@
 Trello.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
-    this.$rootEl = options.$rootEl
+    this.$rootEl = options.$rootEl,
+    this.boards = options.boards
   },
 
   routes: {
-    "": "boardsIndex"
+    "": "boardsIndex",
+    "boards/new": "boardNew",
+    "boards/:id": "boardShow"
   },
 
   boardsIndex: function () {
-    var view = new Trello.Views.BoardsIndex({
-      collection: Trello.boards
-    });
+    // // This functionality subsumed into ../trello.js
+    // var view = new Trello.Views.BoardsIndex({
+    //   collection: Trello.boards
+    // });
+    //
+    // this.$rootEl.html(view.render().$el);
+  },
+
+  boardShow: function () {
+
+  },
+
+  boardNew: function () {
+    var view = new Trello.Views.BoardNew({ collection: this.boards });
 
     this.$rootEl.html(view.render().$el);
   }

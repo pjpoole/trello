@@ -7,10 +7,17 @@ window.Trello = {
     Trello.boards = new Trello.Collections.Boards();
     Trello.boards.fetch();
 
-    var router = new Trello.Routers.Router({
-      $rootEl: $('main.content')
+    var view = new Trello.Views.BoardsIndex({
+      collection: Trello.boards
     });
 
+    $('nav.sidebar').html(view.render().$el);
+
+
+    var router = new Trello.Routers.Router({
+      $rootEl: $('main.content'),
+      boards: Trello.boards
+    });
     Backbone.history.start();
   }
 
