@@ -19,8 +19,11 @@ Trello.Routers.Router = Backbone.Router.extend({
     // this.$rootEl.html(view.render().$el);
   },
 
-  boardShow: function () {
+  boardShow: function (id) {
+    var view = new Trello.Views.BoardShow({ model: this.boards.get(id) });
 
+    // TODO: swapview/CompositeView
+    this.$rootEl.html(view.render().$el);
   },
 
   boardNew: function () {
