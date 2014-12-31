@@ -31,13 +31,18 @@ li {
   /*width: 100%;*/
 }
 
+a {
+  color: inherit;
+}
+
 
 h1 {
-  background: grey;
-  padding: 20px;
+  background: #BBCBDD;
+  padding: 15px;
   font-size: 20pt;
-  font-weight: bold;
+  font-weight: 300;
   text-align: center;
+  color: #555555;
 }
 
 h2 {
@@ -50,7 +55,7 @@ h2 {
   padding: 10px;
   height: 100%;
   width: 150px;
-  background: #999999;
+  background: #E3EAF3;
 }
 
 main {
@@ -60,6 +65,11 @@ main {
 
 .sidebar li {
   padding: 1.5px;
+}
+
+.sidebar a {
+  color: #555555;
+  font-weight: 300;
 }
 
 a.new-board {
