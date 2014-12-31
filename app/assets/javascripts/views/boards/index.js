@@ -14,7 +14,7 @@ Trello.Views.BoardsIndex = Backbone.View.extend({
       this.$el.append(this.template({ board: board }));
     }.bind(this))
 
-    var $newLink = $('<a class="new-board" href="#/boards/new">Create Board</a>')
+    var $newLink = $('<a class="new-board" href="#/boards/new">Create board</a>')
 
     this.$el.append($('<br>'),$newLink);
 
