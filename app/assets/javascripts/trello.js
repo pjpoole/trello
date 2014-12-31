@@ -4,7 +4,14 @@ window.Trello = {
   Views: {},
   Routers: {},
   initialize: function() {
-    // var view = Trello.Views.Main
+    Trello.boards = new Trello.Collections.Boards();
+    Trello.boards.fetch();
+
+    var router = new Trello.Routers.Router({
+      $rootEl: $('main.content')
+    });
+
+    Backbone.history.start();
   }
 
 };
