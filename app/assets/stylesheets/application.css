@@ -27,9 +27,13 @@ ul, li {
   list-style: none;
 }
 
+li {
+  /*width: 100%;*/
+}
+
 
 h1 {
-  background: darkgrey;
+  background: grey;
   padding: 20px;
   font-size: 20pt;
   font-weight: bold;
@@ -46,7 +50,7 @@ h2 {
   padding: 10px;
   height: 100%;
   width: 150px;
-  background: grey;
+  background: #999999;
 }
 
 main {
@@ -54,6 +58,10 @@ main {
   margin-top: 20px;
 }
 
-a {
-  /*font-weight: bold;*/
+.sidebar li {
+  padding: 1.5px;
+}
+
+a.new-board {
+  font-weight: bold;
 }
