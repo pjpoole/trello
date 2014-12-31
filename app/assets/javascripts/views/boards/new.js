@@ -10,12 +10,13 @@ Trello.Views.BoardNew = Backbone.View.extend({
 
     var newName = this.$el.serializeJSON();
 
-    // debugger
     this.collection.create(newName, {
-      success: function () {
+      success: function (model) {
         this.$el.find('input').val("");
+        Backbone.history.navigate("#/boards/" + model.id);
       }.bind(this)
     });
+
 
   },
 
