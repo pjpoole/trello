@@ -2,6 +2,15 @@ Trello.Views.BoardShow = Backbone.View.extend({
   tagName: 'section',
   template: JST['boards/show'],
 
+  events: {
+    'click a.new-list': 'addList',
+    'click button.delete-board': 'deleteBoard'
+  },
+
+  initialize: function () {
+    this.listenTo(this.model, 'sync', this.render)
+  },
+
   render: function () {
     this.$el.html(this.template({ board: this.model }));
 
@@ -16,5 +25,13 @@ Trello.Views.BoardShow = Backbone.View.extend({
     }
 
     return this;
+  },
+
+  addList: function () {
+
+  },
+
+  deleteBoard: function () {
+
   }
 });

@@ -1,1 +1,1 @@
-Trello.Models.Board = Backbone.Model.extend({ });
+Trello.Models.Board = Backbone.Model.extend({});

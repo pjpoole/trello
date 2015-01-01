@@ -20,15 +20,29 @@ Trello.Routers.Router = Backbone.Router.extend({
   },
 
   boardShow: function (id) {
-    var view = new Trello.Views.BoardShow({ model: this.boards.get(id) });
+    var board = Trello.boards.getOrFetch(id);
 
-    // TODO: swapview/CompositeView
-    this.$rootEl.html(view.render().$el);
+    var view = new Trello.Views.BoardShow({
+      model: board,
+      collection: this.boards
+    });
+
+    this._swapView(view);
   },
 
   boardNew: function () {
     var view = new Trello.Views.BoardNew({ collection: this.boards });
 
-    this.$rootEl.html(view.render().$el);
+    this._swapView(view);
+  },
+
+  _swapView: function (newView) {
+    if (this.currentView) {
+      this.currentView.remove();
+    }
+
+    $('main').html(newView.render().$el);
+
+    this.currentView = newView;
   }
 })
