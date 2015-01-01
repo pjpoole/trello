@@ -1,4 +1,4 @@
-Trello.Views.BoardShow = Backbone.View.extend({
+Trello.Views.BoardShow = Backbone.CompositeView.extend({
   tagName: 'section',
   template: JST['boards/show'],
 
@@ -8,7 +8,14 @@ Trello.Views.BoardShow = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.listenTo(this.model, 'sync', this.render)
+    this.listenTo(this.model, 'sync', this.render),
+    this.listenTo(
+      this.model.lists(), 'add', this.addList
+    ),
+    this.listenTo(
+      this.model.lists(), 'remove', this.removeList
+    )
+
   },
 
   render: function () {
@@ -27,8 +34,21 @@ Trello.Views.BoardShow = Backbone.View.extend({
     return this;
   },
 
-  addList: function () {
+  addList: function (list) {
+    var listShow =
+      new Trello.Views.ListShow({ model: list });
+    this.addSubview('.lists', listShow);
+  },
 
+  removeList: function (list) {
+    var subview = _.find(
+      this.subviews('.lists'),
+      function (subview) {
+        return subview.model === list;
+      }
+    );
+
+    this.removeSubview('.lists'. subview);
   },
 
   deleteBoard: function () {

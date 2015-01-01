@@ -73,9 +73,8 @@ Backbone.CompositeView = Backbone.View.extend({
   },
 
   subviews: function (selector) {
-    // for finding the subviews that live inside the given selector. If no
-    // selector is given, return an empty object.  If the selector doesn't
-    // contain any subviews, return an empty array.
+    // for finding the subviews that live inside the given selector. If the
+    // selector doesn't contain any subviews, return an empty array.
     this._subviews = this._subviews || {};
 
     if (!selector) {
